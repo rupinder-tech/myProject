@@ -1,0 +1,34 @@
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Units</th>
+    <th scope="col">Category</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let prod of product; index as i">
+    <td>{{ prod.name }}</td>
+    <td>{{ prod.description}}</td>
+    <td>{{ prod.units}}</td>
+    <td>{{ prod.category}}</td>
+    <td><button class="btn btn-primary" (click)="editProduct(prod.id)">Edit</button>
+          <button class="btn btn-danger" (click)="openModal(deleteModal,prod.id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #deleteModal let-modal>
+  <div class="modal-body">
+      <h4>
+       Are you sure you want to delete ?
+      </h4>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="deleteProduct()">Proceed</button>
+  </div>
+</ng-template>

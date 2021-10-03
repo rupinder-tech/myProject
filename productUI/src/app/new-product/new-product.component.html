@@ -1,0 +1,20 @@
+<div class="container">
+    <div>
+        <h1>Product Form</h1>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required name="name" [(ngModel)] = "name">
+                <label for="name">Description</label>
+                <input type="text" class="form-control" id="desc" required name="desc" [(ngModel)] = "description">
+                <label for="name">Category</label>
+                <input type="text" class="form-control" id="cat" required name="cat" [(ngModel)] = "category">
+                <label for="name">Units</label>
+                <input type="number" class="form-control" id="units" required name="units" [(ngModel)] = "units">
+            </div>
+            <br>
+
+            <button type="submit" [disabled] = "!name || !description || !category || !units" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
